@@ -77,6 +77,29 @@ interface Translations {
   trustScore: string;
   verifiedBills: string;
   verifyCheckin: string;
+  aiPlannerBadge: string;
+  aiPlannerTitle: string;
+  aiPlannerSubtitle: string;
+  destination: string;
+  destinationPlaceholder: string;
+  startDate: string;
+  endDate: string;
+  backHome: string;
+  editProfilePic: string;
+  editProfilePicHint: string;
+  fullName: string;
+  bio: string;
+  location: string;
+  itineraryTitle: string;
+  itinerarySubtitle: string;
+  day: string;
+  addPlace: string;
+  placesAdded: string;
+  yourLocation: string;
+  destinations: string;
+  backProfile: string;
+  verifiedTransaction: string;
+  saveChanges: string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -153,6 +176,29 @@ const translations: Record<Language, Translations> = {
     trustScore: 'Trust Score',
     verifiedBills: 'Verified Bills',
     verifyCheckin: 'Verify Check-in',
+    aiPlannerBadge: 'AI Trip Planner',
+    aiPlannerTitle: 'Let\'s plan your journey',
+    aiPlannerSubtitle: 'Share your travel dreams and preferences. Our AI will craft a personalized itinerary just for you.',
+    destination: 'Destination',
+    destinationPlaceholder: 'Where would you like to go?',
+    startDate: 'Start Date',
+    endDate: 'End Date',
+    backHome: 'Back to Home',
+    editProfilePic: 'Change Profile Picture',
+    editProfilePicHint: 'JPG, PNG or GIF. Max 5MB.',
+    fullName: 'Full Name',
+    bio: 'Bio',
+    location: 'Location',
+    itineraryTitle: 'Your Itinerary',
+    itinerarySubtitle: 'Build your perfect trip by adding places to each day',
+    day: 'Day',
+    addPlace: 'Add Place',
+    placesAdded: 'places added',
+    yourLocation: 'Your location',
+    destinations: 'Destinations',
+    backProfile: 'Back to Profile',
+    verifiedTransaction: 'verified transaction',
+    saveChanges: 'Save Changes',
   },
   vi: {
     discover: 'Khám phá',
@@ -227,6 +273,29 @@ const translations: Record<Language, Translations> = {
     trustScore: 'Điểm tin cậy',
     verifiedBills: 'Hóa đơn xác minh',
     verifyCheckin: 'Xác minh Check-in',
+    aiPlannerBadge: 'Trợ lý Lịch trình AI',
+    aiPlannerTitle: 'Hãy lên kế hoạch cho chuyến đi',
+    aiPlannerSubtitle: 'Chia sẻ sở thích của bạn. AI của chúng tôi sẽ thiết kế một lịch trình dành riêng cho bạn.',
+    destination: 'Điểm đến',
+    destinationPlaceholder: 'Bạn muốn đi đâu?',
+    startDate: 'Ngày bắt đầu',
+    endDate: 'Ngày kết thúc',
+    backHome: 'Quay lại Trang chủ',
+    editProfilePic: 'Thay đổi ảnh đại diện',
+    editProfilePicHint: 'JPG, PNG hoặc GIF. Tối đa 5MB.',
+    fullName: 'Họ và tên',
+    bio: 'Tiểu sử',
+    location: 'Vị trí',
+    itineraryTitle: 'Lịch trình của bạn',
+    itinerarySubtitle: 'Xây dựng chuyến đi hoàn hảo bằng cách thêm địa điểm cho từng ngày',
+    day: 'Ngày',
+    addPlace: 'Thêm địa điểm',
+    placesAdded: 'địa điểm đã thêm',
+    yourLocation: 'Vị trí của bạn',
+    destinations: 'Điểm đến',
+    backProfile: 'Quay lại Hồ sơ',
+    verifiedTransaction: 'giao dịch đã xác minh',
+    saveChanges: 'Lưu thay đổi',
   },
 };
 

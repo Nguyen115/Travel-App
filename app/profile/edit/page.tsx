@@ -8,9 +8,11 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card';
 import { useApp } from '@/contexts/AppContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function EditProfilePage() {
   const { user } = useApp();
+  const { t } = useLanguage();
 
   if (!user) return null;
 
@@ -22,7 +24,7 @@ export default function EditProfilePage() {
             <Link href="/profile"><ArrowLeft className="w-4 h-4 mr-2" />Back</Link>
           </Button>
           <Card className="rounded-2xl p-10 border-0 shadow-lg">
-            <h1 className="font-serif text-3xl text-foreground mb-8">Edit Profile</h1>
+            <h1 className="font-serif text-3xl text-foreground mb-8">{t.editProfile}</h1>
             <form className="space-y-8">
               <div className="flex items-center gap-6">
                 <div className="relative group">
@@ -39,27 +41,27 @@ export default function EditProfilePage() {
                 </div>
                 <div className="flex-1">
                   <Button type="button" variant="outline" className="rounded-xl">
-                    Change Profile Picture
+                    {t.editProfilePic}
                   </Button>
                   <p className="text-sm text-muted-foreground mt-2">
-                    JPG, PNG or GIF. Max 5MB.
+                    {t.editProfilePicHint}
                   </p>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="name">Full Name</Label>
+                <Label htmlFor="name">{t.fullName}</Label>
                 <Input id="name" defaultValue={user.name} className="h-12 rounded-2xl" />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="bio">Bio</Label>
+                <Label htmlFor="bio">{t.bio}</Label>
                 <Textarea id="bio" defaultValue={user.bio} className="min-h-24 rounded-2xl" />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="location">Location</Label>
+                <Label htmlFor="location">{t.location}</Label>
                 <Input id="location" defaultValue={user.location} className="h-12 rounded-2xl" />
               </div>
-              <Button className="w-full h-12 rounded-2xl bg-[#4E7360] hover:bg-[#3f5d4f]">Save Changes</Button>
+              <Button className="w-full h-12 rounded-2xl bg-[#4E7360] hover:bg-[#3f5d4f]">{t.saveChanges}</Button>
             </form>
           </Card>
         </div>

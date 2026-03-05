@@ -12,6 +12,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { InteractiveMap } from '@/components/InteractiveMap';
 import { AddPlaceDrawer } from '@/components/AddPlaceDrawer';
 import { toast } from 'sonner';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Activity {
   id: string;
@@ -34,6 +35,7 @@ interface Trip {
 export default function TripBuilderPage() {
   const params = useParams();
   const router = useRouter();
+  const { t } = useLanguage();
   const [trip, setTrip] = useState<Trip | null>(null);
   const [addPlaceOpen, setAddPlaceOpen] = useState(false);
   const [selectedDay, setSelectedDay] = useState(1);
@@ -150,9 +152,9 @@ export default function TripBuilderPage() {
           <div className="hidden lg:grid lg:grid-cols-2 gap-8">
             <div className="space-y-6">
               <Card className="rounded-2xl p-6 border-0 shadow-sm">
-                <h2 className="font-serif text-2xl text-foreground mb-4">Your Itinerary</h2>
+                <h2 className="font-serif text-2xl text-foreground mb-4">{t.itineraryTitle}</h2>
                 <p className="text-muted-foreground">
-                  Build your perfect trip by adding places to each day
+                  {t.itinerarySubtitle}
                 </p>
               </Card>
 
@@ -171,7 +173,7 @@ export default function TripBuilderPage() {
                         <div className="w-12 h-12 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center font-semibold shadow-lg">
                           {day}
                         </div>
-                        <h3 className="font-serif text-2xl text-foreground">Day {day}</h3>
+                        <h3 className="font-serif text-2xl text-foreground">{t.day} {day}</h3>
                       </div>
 
                       <div className="relative pl-14 space-y-4">
@@ -246,7 +248,7 @@ export default function TripBuilderPage() {
                           }}
                         >
                           <Plus className="w-5 h-5 mr-2 text-muted-foreground group-hover:text-primary transition-colors" />
-                          <span className="font-medium">Add Place</span>
+                          <span className="font-medium">{t.addPlace}</span>
                         </Button>
                       </div>
                     </motion.div>
@@ -296,7 +298,7 @@ export default function TripBuilderPage() {
                         <div className="w-12 h-12 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center font-semibold shadow-lg">
                           {day}
                         </div>
-                        <h3 className="font-serif text-2xl text-foreground">Day {day}</h3>
+                        <h3 className="font-serif text-2xl text-foreground">{t.day} {day}</h3>
                       </div>
 
                       <div className="space-y-4">
@@ -349,7 +351,7 @@ export default function TripBuilderPage() {
                           }}
                         >
                           <Plus className="w-5 h-5 mr-2" />
-                          Add Place
+                          {t.addPlace}
                         </Button>
                       </div>
                     </motion.div>

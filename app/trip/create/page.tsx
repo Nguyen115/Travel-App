@@ -10,9 +10,11 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function CreateTripPage() {
   const router = useRouter();
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     destination: '',
     startDate: '',
@@ -36,7 +38,7 @@ export default function CreateTripPage() {
           <Button variant="ghost" asChild className="mb-8 rounded-xl">
             <Link href="/">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Home
+              {t.backHome}
             </Link>
           </Button>
 
@@ -48,13 +50,13 @@ export default function CreateTripPage() {
             <div className="text-center space-y-4">
               <div className="inline-flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2">
                 <Sparkles className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-primary">AI Trip Planner</span>
+                <span className="text-sm font-medium text-primary">{t.aiPlannerBadge}</span>
               </div>
               <h1 className="font-serif text-5xl text-foreground">
-                Let's plan your journey
+                {t.aiPlannerTitle}
               </h1>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Share your travel dreams and preferences. Our AI will craft a personalized itinerary just for you.
+                {t.aiPlannerSubtitle}
               </p>
             </div>
 
@@ -63,11 +65,11 @@ export default function CreateTripPage() {
                 <div className="space-y-2">
                   <Label htmlFor="destination" className="text-base flex items-center gap-2">
                     <Compass className="w-4 h-4" />
-                    Destination
+                    {t.destination}
                   </Label>
                   <Input
                     id="destination"
-                    placeholder="Where would you like to go?"
+                    placeholder={t.destinationPlaceholder}
                     className="h-14 rounded-2xl text-base"
                     value={formData.destination}
                     onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
@@ -79,7 +81,7 @@ export default function CreateTripPage() {
                   <div className="space-y-2">
                     <Label htmlFor="startDate" className="text-base flex items-center gap-2">
                       <Calendar className="w-4 h-4" />
-                      Start Date
+                      {t.startDate}
                     </Label>
                     <Input
                       id="startDate"
@@ -93,7 +95,7 @@ export default function CreateTripPage() {
 
                   <div className="space-y-2">
                     <Label htmlFor="endDate" className="text-base">
-                      End Date
+                      {t.endDate}
                     </Label>
                     <Input
                       id="endDate"

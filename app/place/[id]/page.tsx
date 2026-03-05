@@ -278,7 +278,7 @@ export default function PlaceDetailPage() {
                         <span className="font-medium text-foreground">{t.verifiedBills}</span>
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        {place.verifiedBills.length} verified transaction{place.verifiedBills.length !== 1 ? 's' : ''}
+                        {place.verifiedBills.length} {place.verifiedBills.length !== 1 ? `${t.verifiedTransaction}s` : t.verifiedTransaction}
                       </p>
                     </div>
                   )}
