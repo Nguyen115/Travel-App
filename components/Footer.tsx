@@ -5,7 +5,7 @@ import { Compass, Globe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export function Footer() {
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
 
   return (
     <footer className="hidden md:block bg-secondary border-t border-border mt-20">
@@ -17,7 +17,7 @@ export function Footer() {
               <span className="font-serif text-2xl text-foreground">Voyager</span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
-              Discover extraordinary places. Plan journeys that matter. Travel with intention and grace.
+              {t.footerAbout}
             </p>
             <div className="flex items-center gap-2 pt-2">
               <Globe className="w-3.5 h-3.5 text-muted-foreground" />
@@ -42,12 +42,17 @@ export function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground text-sm tracking-wide uppercase">Company</h4>
+            <h4 className="font-semibold text-foreground text-sm tracking-wide uppercase">{t.footerCompany}</h4>
             <ul className="space-y-3">
-              {['About', 'Careers', 'Press', 'Blog'].map((item) => (
-                <li key={item}>
+              {[
+                { key: 'footerAboutLink', label: t.footerAboutLink },
+                { key: 'footerCareers', label: t.footerCareers },
+                { key: 'footerPress', label: t.footerPress },
+                { key: 'footerBlog', label: t.footerBlog },
+              ].map((item) => (
+                <li key={item.key}>
                   <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    {item}
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -55,12 +60,17 @@ export function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground text-sm tracking-wide uppercase">Legal</h4>
+            <h4 className="font-semibold text-foreground text-sm tracking-wide uppercase">{t.footerLegal}</h4>
             <ul className="space-y-3">
-              {['Trust & Safety', 'Privacy Policy', 'Terms of Service', 'Contact'].map((item) => (
-                <li key={item}>
+              {[
+                { key: 'footerTrust', label: t.footerTrust },
+                { key: 'footerPrivacy', label: t.footerPrivacy },
+                { key: 'footerTerms', label: t.footerTerms },
+                { key: 'footerContact', label: t.footerContact },
+              ].map((item) => (
+                <li key={item.key}>
                   <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    {item}
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -70,10 +80,10 @@ export function Footer() {
 
         <div className="border-t border-border mt-12 pt-8 flex items-center justify-between">
           <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} Voyager. All rights reserved.
+            &copy; {new Date().getFullYear()} Voyager. {t.footerCopyright}
           </p>
           <p className="text-xs text-muted-foreground">
-            Premium Travel Discovery Platform
+            {t.footerTagline}
           </p>
         </div>
       </div>

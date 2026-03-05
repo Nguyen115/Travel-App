@@ -2,31 +2,24 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Compass, Search, MapPin, Bell, User, LayoutDashboard, LogIn, Globe, Sparkles } from 'lucide-react';
+import { Compass, Search, Sparkles, User, LayoutDashboard, LogIn, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { useApp } from '@/contexts/AppContext';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { CreateTripDropdown } from '@/components/CreateTripDropdown';
+import { NotificationPopover } from '@/components/NotificationPopover';
 
 export function Navigation() {
   const pathname = usePathname();
-  const { notifications, user, isAuthenticated } = useApp();
+  const { user, isAuthenticated } = useApp();
   const { language, setLanguage, t } = useLanguage();
 
-  const unreadCount = notifications.filter(n => !n.read).length;
   const isAdmin = user?.email === 'admin@voyager.com';
 
-  const navItems = [
+  const leftItems = [
     { href: '/', icon: Compass, label: t.discover },
-    { href: '/search', icon: Search, label: t.search },
     { href: '/community', icon: Sparkles, label: 'Inspiration' },
-    { href: '/profile/trips', icon: MapPin, label: t.myTrips },
-    { href: '/notifications', icon: Bell, label: t.notifications, badge: unreadCount },
   ];
-
-  if (isAdmin) {
-    navItems.push({ href: '/admin', icon: LayoutDashboard, label: t.admin });
-  }
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-card/80 backdrop-blur-xl border-b border-border z-50 hidden md:block">
@@ -37,8 +30,8 @@ export function Navigation() {
             <span className="font-serif text-2xl text-foreground">Voyager</span>
           </Link>
 
-          <div className="flex items-center gap-2">
-            {navItems.map((item) => {
+          <div className="flex items-center gap-3">
+            {leftItems.map((item) => {
               const Icon = item.icon;
               const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href + '/'));
 
@@ -48,27 +41,54 @@ export function Navigation() {
                   variant={isActive ? 'default' : 'ghost'}
                   size="sm"
                   asChild
-                  className="relative rounded-full"
+                  className="rounded-full"
                 >
                   <Link href={item.href}>
                     <Icon className="w-4 h-4 mr-2" />
                     <span>{item.label}</span>
-                    {item.badge !== undefined && item.badge > 0 && (
-                      <Badge className="ml-2 px-1.5 min-w-[20px] h-5 flex items-center justify-center">
-                        {item.badge}
-                      </Badge>
-                    )}
                   </Link>
                 </Button>
               );
             })}
+
+            {isAdmin && (
+              <Button
+                variant={pathname === '/admin' ? 'default' : 'ghost'}
+                size="sm"
+                asChild
+                className="rounded-full"
+              >
+                <Link href="/admin">
+                  <LayoutDashboard className="w-4 h-4 mr-2" />
+                  <span>{t.admin}</span>
+                </Link>
+              </Button>
+            )}
+          </div>
+
+          <div className="flex items-center gap-3 ml-auto">
+            <CreateTripDropdown />
+
+            <Button
+              variant={pathname === '/search' ? 'default' : 'ghost'}
+              size="sm"
+              asChild
+              className="rounded-full"
+            >
+              <Link href="/search">
+                <Search className="w-4 h-4 mr-2" />
+                <span>{t.search}</span>
+              </Link>
+            </Button>
+
+            <NotificationPopover />
 
             {isAuthenticated ? (
               <Button
                 variant={pathname === '/profile' || (pathname.startsWith('/profile/') && !pathname.startsWith('/profile/trips')) ? 'default' : 'ghost'}
                 size="sm"
                 asChild
-                className="relative rounded-full"
+                className="rounded-full"
               >
                 <Link href="/profile">
                   <User className="w-4 h-4 mr-2" />

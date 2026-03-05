@@ -7,9 +7,11 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useApp } from '@/contexts/AppContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function HomePage() {
   const { places, user } = useApp();
+  const { t } = useLanguage();
 
   const featuredPlace = places[0];
   const hiddenGems = places.slice(1, 4);
@@ -28,13 +30,13 @@ export default function HomePage() {
               <div className="relative max-w-3xl space-y-6">
                 <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
                   <Sparkles className="w-4 h-4" />
-                  <span className="text-sm font-medium">AI Trip Planner</span>
+                  <span className="text-sm font-medium">{t.aiTripPlanner}</span>
                 </div>
                 <h1 className="font-serif text-5xl md:text-6xl leading-tight">
-                  Let AI craft your perfect itinerary
+                  {t.letAICraft}
                 </h1>
                 <p className="text-white/80 text-lg md:text-xl leading-relaxed">
-                  Tell us your dreams, and we'll create a personalized journey tailored to your preferences, budget, and travel style.
+                  {t.letAICraftDesc}
                 </p>
                 <Button
                   size="lg"
@@ -42,7 +44,7 @@ export default function HomePage() {
                   className="bg-white/95 text-foreground hover:bg-white rounded-full h-14 px-8 text-base font-medium shadow-sm"
                 >
                   <Link href="/trip/create">
-                    Start Planning
+                    {t.startPlanning}
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Link>
                 </Button>
@@ -56,7 +58,7 @@ export default function HomePage() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <TrendingUp className="w-6 h-6 text-primary" />
-                <h2 className="font-serif text-3xl text-foreground">Location of the Week</h2>
+                <h2 className="font-serif text-3xl text-foreground">{t.locationOfTheWeek}</h2>
               </div>
             </div>
 
@@ -117,7 +119,7 @@ export default function HomePage() {
                       </div>
 
                       <Button size="lg" className="w-full rounded-2xl group">
-                        Explore This Gem
+                        {t.exploreThisGem}
                         <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                       </Button>
                     </div>
@@ -131,11 +133,11 @@ export default function HomePage() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Sparkles className="w-6 h-6 text-primary" />
-                <h2 className="font-serif text-3xl text-foreground">Hidden Gems</h2>
+                <h2 className="font-serif text-3xl text-foreground">{t.hiddenGems}</h2>
               </div>
               <Button variant="ghost" asChild className="rounded-xl">
                 <Link href="/search">
-                  View All
+                  {t.viewAll}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
