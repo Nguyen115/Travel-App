@@ -2,19 +2,18 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Chrome as Home, Search, Plus, User, Bell } from 'lucide-react';
+import { Chrome as Home, Search, Plus, User, Globe } from 'lucide-react';
 import { useApp } from '@/contexts/AppContext';
 
 export function BottomNav() {
   const pathname = usePathname();
-  const { notifications, isAuthenticated } = useApp();
-  const unreadCount = notifications.filter(n => !n.read).length;
+  const { isAuthenticated } = useApp();
 
   const items = [
     { href: '/', icon: Home, label: 'Home' },
     { href: '/search', icon: Search, label: 'Search' },
     { href: '/trip/create', icon: Plus, label: 'New Trip', isCTA: true },
-    { href: '/notifications', icon: Bell, label: 'Alerts', badge: unreadCount },
+    { href: '/community', icon: Globe, label: 'Community' },
     { href: isAuthenticated ? '/profile' : '/auth', icon: User, label: isAuthenticated ? 'Profile' : 'Sign In' },
   ];
 
@@ -55,11 +54,6 @@ export function BottomNav() {
                   }`}
                   strokeWidth={isActive ? 2.5 : 1.75}
                 />
-                {item.badge !== undefined && item.badge > 0 && (
-                  <span className="absolute -top-1 -right-1.5 w-4 h-4 bg-primary text-primary-foreground text-[10px] font-bold rounded-full flex items-center justify-center">
-                    {item.badge > 9 ? '9+' : item.badge}
-                  </span>
-                )}
               </div>
               <span
                 className={`text-[10px] font-medium transition-colors ${

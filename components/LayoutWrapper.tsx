@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { Navigation } from '@/components/Navigation';
+import { MobileHeader } from '@/components/MobileHeader';
 import { BottomNav } from '@/components/BottomNav';
 import { Footer } from '@/components/Footer';
 
@@ -19,6 +20,7 @@ export function LayoutWrapper({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Navigation />
+      <MobileHeader />
       {children}
       <Footer />
       <BottomNav />
