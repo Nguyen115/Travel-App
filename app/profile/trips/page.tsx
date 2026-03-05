@@ -9,9 +9,11 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { useApp } from '@/contexts/AppContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function MyTripsPage() {
   const { user } = useApp();
+  const { t } = useLanguage();
 
   if (!user) return null;
 
@@ -23,17 +25,17 @@ export default function MyTripsPage() {
             <Button variant="ghost" asChild className="mb-4 rounded-xl">
               <Link href="/profile">
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Profile
+                {t.backToProfile}
               </Link>
             </Button>
 
             <div className="flex items-center justify-between">
-              <h1 className="font-serif text-5xl text-foreground">My Trips</h1>
+              <h1 className="font-serif text-5xl text-foreground">{t.myTrips}</h1>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button className="rounded-2xl gap-2 h-12 px-6">
                     <Plus className="w-5 h-5" />
-                    New Trip
+                    {t.newTrip}
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-72 rounded-2xl p-2">
@@ -105,7 +107,7 @@ export default function MyTripsPage() {
                             </div>
                             <div className="flex items-center gap-2">
                               <Users className="w-4 h-4" />
-                              <span>{trip.participants} {trip.participants === 1 ? 'traveler' : 'travelers'}</span>
+                              <span>{trip.participants} {trip.participants === 1 ? 'traveler' : t.travelers}</span>
                             </div>
                           </div>
                         </div>

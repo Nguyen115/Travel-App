@@ -7,9 +7,11 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useApp } from '@/contexts/AppContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function ProfilePage() {
   const { user, logout } = useApp();
+  const { t } = useLanguage();
   const router = useRouter();
 
   const handleLogout = () => {
@@ -48,7 +50,7 @@ export default function ProfilePage() {
                   <Button variant="outline" asChild className="rounded-xl gap-2 whitespace-nowrap">
                     <Link href="/profile/edit">
                       <Edit className="w-4 h-4" />
-                      Edit Profile
+                      {t.editProfile}
                     </Link>
                   </Button>
                 </div>
@@ -60,7 +62,7 @@ export default function ProfilePage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4 flex-shrink-0" />
-                    <span>Member since {new Date(user.memberSince).getFullYear()}</span>
+                    <span>{t.memberSince} {new Date(user.memberSince).getFullYear()}</span>
                   </div>
                 </div>
 
@@ -82,8 +84,8 @@ export default function ProfilePage() {
                   <Bookmark className="w-8 h-8 text-primary" />
                   <span className="text-2xl font-bold text-foreground">{user.collections.length}</span>
                 </div>
-                <h3 className="font-serif text-xl text-foreground mb-1">Collections</h3>
-                <p className="text-sm text-muted-foreground">Saved places</p>
+                <h3 className="font-serif text-xl text-foreground mb-1">{t.collections}</h3>
+                <p className="text-sm text-muted-foreground">{t.savedPlaces}</p>
               </Card>
             </Link>
 
@@ -93,8 +95,8 @@ export default function ProfilePage() {
                   <MapPin className="w-8 h-8 text-primary" />
                   <span className="text-2xl font-bold text-foreground">{user.trips.length}</span>
                 </div>
-                <h3 className="font-serif text-xl text-foreground mb-1">Trips</h3>
-                <p className="text-sm text-muted-foreground">Planned journeys</p>
+                <h3 className="font-serif text-xl text-foreground mb-1">{t.trips}</h3>
+                <p className="text-sm text-muted-foreground">{t.plannedJourneys}</p>
               </Card>
             </Link>
 
@@ -103,8 +105,8 @@ export default function ProfilePage() {
                 <div className="flex items-center justify-between mb-4">
                   <Crown className="w-8 h-8 text-amber-600" />
                 </div>
-                <h3 className="font-serif text-xl text-foreground mb-1">VIP Member</h3>
-                <p className="text-sm text-muted-foreground">Manage your plan</p>
+                <h3 className="font-serif text-xl text-foreground mb-1">{t.vipMember}</h3>
+                <p className="text-sm text-muted-foreground">{t.managePlan}</p>
               </Card>
             </Link>
           </div>
@@ -113,7 +115,7 @@ export default function ProfilePage() {
             <Button variant="outline" asChild className="rounded-xl gap-2">
               <Link href="/profile/settings">
                 <Settings className="w-4 h-4" />
-                Account Settings
+                {t.accountSettings}
               </Link>
             </Button>
             <Button
@@ -122,7 +124,7 @@ export default function ProfilePage() {
               className="rounded-xl gap-2 text-destructive hover:text-destructive hover:bg-destructive/10"
             >
               <LogOut className="w-4 h-4" />
-              Log Out
+              {t.logOut}
             </Button>
           </div>
         </div>

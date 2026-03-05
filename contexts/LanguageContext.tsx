@@ -43,6 +43,40 @@ interface Translations {
   footerTagline: string;
   notificationEmpty: string;
   markRead: string;
+  createManualTitle: string;
+  createManualSubtitle: string;
+  whereGoing: string;
+  whereGoingPlaceholder: string;
+  howManyDays: string;
+  adjustLater: string;
+  startBuilding: string;
+  inspireTitle: string;
+  inspireSubtitle: string;
+  searchGuides: string;
+  places: string;
+  by: string;
+  editProfile: string;
+  memberSince: string;
+  savedPlaces: string;
+  plannedJourneys: string;
+  vipMember: string;
+  managePlan: string;
+  backToProfile: string;
+  newTrip: string;
+  planning: string;
+  travelers: string;
+  discoverPlaces: string;
+  searchDestinations: string;
+  filters: string;
+  about: string;
+  reviews: string;
+  writeReview: string;
+  trustSignals: string;
+  trustBadge: string;
+  verifiedEst: string;
+  trustScore: string;
+  verifiedBills: string;
+  verifyCheckin: string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -85,6 +119,40 @@ const translations: Record<Language, Translations> = {
     footerTagline: 'Premium Travel Discovery Platform',
     notificationEmpty: 'No notifications yet',
     markRead: 'Mark as read',
+    createManualTitle: 'Create Your Trip',
+    createManualSubtitle: 'Build your custom itinerary from scratch with complete control over every detail',
+    whereGoing: 'Where are you going?',
+    whereGoingPlaceholder: 'E.g., Vung Tau, Da Lat, Hanoi',
+    howManyDays: 'How many days?',
+    adjustLater: 'You can always adjust this later',
+    startBuilding: 'Start Building Itinerary',
+    inspireTitle: 'Inspiration',
+    inspireSubtitle: 'Discover and save guides from our community of world travelers',
+    searchGuides: 'Search destinations, guides...',
+    places: 'places',
+    by: 'By',
+    editProfile: 'Edit Profile',
+    memberSince: 'Member since',
+    savedPlaces: 'Saved places',
+    plannedJourneys: 'Planned journeys',
+    vipMember: 'VIP Member',
+    managePlan: 'Manage your plan',
+    backToProfile: 'Back to Profile',
+    newTrip: 'New Trip',
+    planning: 'Planning',
+    travelers: 'travelers',
+    discoverPlaces: 'Discover Places',
+    searchDestinations: 'Search destinations, cuisines, experiences...',
+    filters: 'Filters',
+    about: 'About',
+    reviews: 'Reviews',
+    writeReview: 'Write Review',
+    trustSignals: 'Trust Signals',
+    trustBadge: 'Trust Badge',
+    verifiedEst: 'Verified Establishment',
+    trustScore: 'Trust Score',
+    verifiedBills: 'Verified Bills',
+    verifyCheckin: 'Verify Check-in',
   },
   vi: {
     discover: 'Khám phá',
@@ -125,6 +193,40 @@ const translations: Record<Language, Translations> = {
     footerTagline: 'Nền tảng khám phá du lịch cao cấp',
     notificationEmpty: 'Chưa có thông báo',
     markRead: 'Đánh dấu đã đọc',
+    createManualTitle: 'Tạo chuyến đi của bạn',
+    createManualSubtitle: 'Tự lên lịch trình chi tiết theo cách của riêng bạn',
+    whereGoing: 'Bạn muốn đi đâu?',
+    whereGoingPlaceholder: 'VD: Vũng Tàu, Đà Lạt, Hà Nội',
+    howManyDays: 'Bao nhiêu ngày?',
+    adjustLater: 'Bạn có thể thay đổi sau',
+    startBuilding: 'Bắt đầu lên lịch',
+    inspireTitle: 'Cảm hứng',
+    inspireSubtitle: 'Khám phá và lưu lại cẩm nang từ cộng đồng du lịch',
+    searchGuides: 'Tìm điểm đến, cẩm nang...',
+    places: 'địa điểm',
+    by: 'Bởi',
+    editProfile: 'Chỉnh sửa hồ sơ',
+    memberSince: 'Thành viên từ',
+    savedPlaces: 'Đã lưu',
+    plannedJourneys: 'Lịch trình đã tạo',
+    vipMember: 'Thành viên VIP',
+    managePlan: 'Quản lý gói',
+    backToProfile: 'Quay lại hồ sơ',
+    newTrip: 'Chuyến đi mới',
+    planning: 'Đang lên lịch',
+    travelers: 'người',
+    discoverPlaces: 'Khám phá Địa điểm',
+    searchDestinations: 'Tìm điểm đến, ẩm thực, trải nghiệm...',
+    filters: 'Bộ lọc',
+    about: 'Giới thiệu',
+    reviews: 'Đánh giá',
+    writeReview: 'Viết đánh giá',
+    trustSignals: 'Độ tin cậy',
+    trustBadge: 'Huy hiệu tin cậy',
+    verifiedEst: 'Cơ sở đã xác minh',
+    trustScore: 'Điểm tin cậy',
+    verifiedBills: 'Hóa đơn xác minh',
+    verifyCheckin: 'Xác minh Check-in',
   },
 };
 

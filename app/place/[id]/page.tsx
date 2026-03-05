@@ -12,11 +12,13 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Textarea } from '@/components/ui/textarea';
 import { useApp } from '@/contexts/AppContext';
 import { useToast } from '@/hooks/use-toast';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function PlaceDetailPage() {
   const params = useParams();
   const { places } = useApp();
   const { toast } = useToast();
+  const { t } = useLanguage();
   const [checkInVerified, setCheckInVerified] = useState(false);
 
   const place = places.find(p => p.id === params.id);
@@ -116,7 +118,7 @@ export default function PlaceDetailPage() {
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
               <Card className="rounded-2xl p-8 border-0 shadow-sm">
-                <h2 className="font-serif text-2xl text-foreground mb-4">About</h2>
+                <h2 className="font-serif text-2xl text-foreground mb-4">{t.about}</h2>
                 <p className="text-muted-foreground text-lg leading-relaxed">
                   {place.description}
                 </p>
@@ -132,10 +134,10 @@ export default function PlaceDetailPage() {
 
               <Card className="rounded-2xl p-8 border-0 shadow-sm">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="font-serif text-2xl text-foreground">Reviews</h2>
+                  <h2 className="font-serif text-2xl text-foreground">{t.reviews}</h2>
                   <Dialog>
                     <DialogTrigger asChild>
-                      <Button className="rounded-xl">Write Review</Button>
+                      <Button className="rounded-xl">{t.writeReview}</Button>
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-lg rounded-2xl">
                       <DialogHeader>
@@ -237,7 +239,7 @@ export default function PlaceDetailPage() {
               <Card className="rounded-2xl p-6 border-0 shadow-lg sticky top-24">
                 <div className="flex items-center gap-2 mb-6">
                   <Shield className="w-5 h-5 text-primary" />
-                  <h3 className="font-serif text-xl text-foreground">Trust Signals</h3>
+                  <h3 className="font-serif text-xl text-foreground">{t.trustSignals}</h3>
                 </div>
 
                 <div className="space-y-4">
@@ -247,8 +249,8 @@ export default function PlaceDetailPage() {
                         <BadgeCheck className="w-5 h-5 text-primary" />
                       </div>
                       <div>
-                        <div className="font-semibold text-foreground">Trust Badge</div>
-                        <div className="text-sm text-muted-foreground">Verified Establishment</div>
+                        <div className="font-semibold text-foreground">{t.trustBadge}</div>
+                        <div className="text-sm text-muted-foreground">{t.verifiedEst}</div>
                       </div>
                     </div>
                   </div>
@@ -256,7 +258,7 @@ export default function PlaceDetailPage() {
                   <div className="p-4 bg-muted rounded-xl">
                     <div className="flex items-center gap-2 mb-3">
                       <FileText className="w-4 h-4 text-muted-foreground" />
-                      <span className="font-medium text-foreground">Trust Score</span>
+                      <span className="font-medium text-foreground">{t.trustScore}</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="flex-1 h-2 bg-background rounded-full overflow-hidden">
@@ -273,7 +275,7 @@ export default function PlaceDetailPage() {
                     <div className="p-4 bg-muted rounded-xl">
                       <div className="flex items-center gap-2 mb-2">
                         <CheckCircle2 className="w-4 h-4 text-primary" />
-                        <span className="font-medium text-foreground">Verified Bills</span>
+                        <span className="font-medium text-foreground">{t.verifiedBills}</span>
                       </div>
                       <p className="text-sm text-muted-foreground">
                         {place.verifiedBills.length} verified transaction{place.verifiedBills.length !== 1 ? 's' : ''}
@@ -286,7 +288,7 @@ export default function PlaceDetailPage() {
                   {!checkInVerified ? (
                     <Button onClick={handleCheckIn} className="w-full rounded-xl gap-2">
                       <MapPin className="w-4 h-4" />
-                      Verify Check-in
+                      {t.verifyCheckin}
                     </Button>
                   ) : (
                     <div className="text-center py-4 space-y-2">

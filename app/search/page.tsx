@@ -11,9 +11,11 @@ import { Badge } from '@/components/ui/badge';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { useApp } from '@/contexts/AppContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function SearchPage() {
   const { places } = useApp();
+  const { t } = useLanguage();
   const [viewMode, setViewMode] = useState<'list' | 'map'>('list');
   const [searchQuery, setSearchQuery] = useState('');
   const [showFilters, setShowFilters] = useState(false);
@@ -50,7 +52,7 @@ export default function SearchPage() {
       <main className="pt-24 pb-20 md:pb-16">
         <div className="max-w-7xl mx-auto px-6 space-y-8">
           <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-            <h1 className="font-serif text-4xl text-foreground">Discover Places</h1>
+            <h1 className="font-serif text-4xl text-foreground">{t.discoverPlaces}</h1>
 
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1 bg-card rounded-xl p-1 border">
@@ -78,7 +80,7 @@ export default function SearchPage() {
                 onClick={() => setShowFilters(true)}
               >
                 <SlidersHorizontal className="w-4 h-4" />
-                Filters
+                {t.filters}
               </Button>
             </div>
           </div>
@@ -86,7 +88,7 @@ export default function SearchPage() {
           <div className="relative">
             <SearchIcon className="absolute left-4 top-4 h-5 w-5 text-muted-foreground" />
             <Input
-              placeholder="Search destinations, cuisines, experiences..."
+              placeholder={t.searchDestinations}
               className="pl-12 h-14 rounded-2xl text-base"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}

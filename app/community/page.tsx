@@ -6,8 +6,10 @@ import { Search, Heart, Plus, MapPin } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { mockCommunityGuides } from '@/lib/mockData';
 import { CommunityGuide } from '@/lib/mockData';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function CommunityPage() {
+  const { t } = useLanguage();
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredGuides, setFilteredGuides] = useState<CommunityGuide[]>(mockCommunityGuides);
 
@@ -30,15 +32,15 @@ export default function CommunityPage() {
       <div className="pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-12">
-            <h1 className="font-serif text-5xl text-foreground mb-4">Inspiration</h1>
+            <h1 className="font-serif text-5xl text-foreground mb-4">{t.inspireTitle}</h1>
             <p className="text-lg text-muted-foreground mb-8">
-              Discover and save guides from our community of world travelers
+              {t.inspireSubtitle}
             </p>
 
             <div className="relative">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
               <Input
-                placeholder="Search destinations, guides..."
+                placeholder={t.searchGuides}
                 value={searchQuery}
                 onChange={(e) => handleSearch(e.target.value)}
                 className="pl-12 rounded-full h-12 bg-white border-slate-200 shadow-sm"
@@ -62,7 +64,7 @@ export default function CommunityPage() {
 
                       <div className="absolute top-3 left-3">
                         <div className="bg-black/50 text-white backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium">
-                          {guide.placeCount} places
+                          {guide.placeCount} {t.places}
                         </div>
                       </div>
 
@@ -82,7 +84,7 @@ export default function CommunityPage() {
                           className="w-10 h-10 rounded-full border-2 border-white"
                         />
                         <div className="flex-1 min-w-0">
-                          <p className="text-xs text-white/80">By</p>
+                          <p className="text-xs text-white/80">{t.by}</p>
                           <p className="font-medium text-sm truncate">{guide.authorName}</p>
                         </div>
                       </div>
