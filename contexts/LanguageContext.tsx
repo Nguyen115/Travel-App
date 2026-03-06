@@ -123,6 +123,19 @@ interface Translations {
   terms_service: string;
   trust_safety: string;
   contact: string;
+  guide_mode: string;
+  exit_guide: string;
+  next_stop: string;
+  eta: string;
+  distance: string;
+  turn_right: string;
+  simulate_incident: string;
+  alert_title: string;
+  alert_desc: string;
+  alternative_place: string;
+  alternative_desc: string;
+  accept_replan: string;
+  keep_original: string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -245,6 +258,19 @@ const translations: Record<Language, Translations> = {
     terms_service: 'Terms of Service',
     trust_safety: 'Trust & Safety',
     contact: 'Contact Us',
+    guide_mode: 'Guide Mode',
+    exit_guide: 'Exit',
+    next_stop: 'Next Stop',
+    eta: 'ETA',
+    distance: 'Distance',
+    turn_right: 'Turn right onto Le Loi St.',
+    simulate_incident: 'Simulate Weather Alert',
+    alert_title: 'Weather Alert & Re-plan',
+    alert_desc: 'Heavy rain detected at your next stop (Ben Thanh Market). Since this is partly outdoor, we suggest a safer indoor alternative nearby.',
+    alternative_place: 'Fine Arts Museum',
+    alternative_desc: 'Indoor • 5 mins away • Matches your \'Culture\' preference',
+    accept_replan: 'Accept Alternative',
+    keep_original: 'Keep Original Route',
   },
   vi: {
     discover: 'Khám phá',
@@ -365,6 +391,19 @@ const translations: Record<Language, Translations> = {
     terms_service: 'Điều khoản dịch vụ',
     trust_safety: 'Tin cậy & An toàn',
     contact: 'Liên hệ',
+    guide_mode: 'Chế độ Dẫn đường',
+    exit_guide: 'Thoát',
+    next_stop: 'Điểm đến tiếp theo',
+    eta: 'Dự kiến',
+    distance: 'Khoảng cách',
+    turn_right: 'Rẽ phải vào đường Lê Lợi',
+    simulate_incident: 'Giả lập Sự cố Thời tiết',
+    alert_title: 'Cảnh báo Thời tiết & Đổi lịch',
+    alert_desc: 'Phát hiện mưa lớn tại điểm đến (Chợ Bến Thành). Đây là khu vực có phần ngoài trời, hệ thống đề xuất điểm đến trong nhà an toàn hơn.',
+    alternative_place: 'Bảo tàng Mỹ thuật',
+    alternative_desc: 'Trong nhà • Cách 5 phút • Phù hợp sở thích \'Văn hóa\'',
+    accept_replan: 'Chấp nhận Đổi điểm',
+    keep_original: 'Giữ nguyên Lịch trình',
   },
 };
 
