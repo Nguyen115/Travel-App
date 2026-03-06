@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { CreditCard as Edit, MapPin, Calendar, Crown, Bookmark, Settings, LogOut } from 'lucide-react';
+import { CreditCard as Edit, MapPin, Calendar, Crown, Bookmark, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -10,14 +10,8 @@ import { useApp } from '@/contexts/AppContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function ProfilePage() {
-  const { user, logout } = useApp();
+  const { user } = useApp();
   const { t } = useLanguage();
-  const router = useRouter();
-
-  const handleLogout = () => {
-    logout();
-    router.push('/');
-  };
 
   if (!user) return null;
 
@@ -117,14 +111,6 @@ export default function ProfilePage() {
                 <Settings className="w-4 h-4" />
                 {t.accountSettings}
               </Link>
-            </Button>
-            <Button
-              variant="ghost"
-              onClick={handleLogout}
-              className="rounded-xl gap-2 text-destructive hover:text-destructive hover:bg-destructive/10"
-            >
-              <LogOut className="w-4 h-4" />
-              {t.logOut}
             </Button>
           </div>
         </div>

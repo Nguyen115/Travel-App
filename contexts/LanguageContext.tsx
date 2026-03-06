@@ -112,6 +112,10 @@ interface Translations {
   aiChatPlaceholder: string;
   aiSuggestion1: string;
   aiSuggestion2: string;
+  merchantAuthTitle: string;
+  merchantAuthSubtitle: string;
+  travelerCtaAuth: string;
+  travelerRegisterHere: string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -223,6 +227,10 @@ const translations: Record<Language, Translations> = {
     aiChatPlaceholder: 'Ask AI to modify your trip...',
     aiSuggestion1: 'Can you suggest a vegan restaurant for Day 2?',
     aiSuggestion2: 'Make this itinerary more kid-friendly.',
+    merchantAuthTitle: 'Partner with Voyager',
+    merchantAuthSubtitle: 'Join our curated network of premium travel experiences and reach discerning travelers worldwide.',
+    travelerCtaAuth: 'Not a business?',
+    travelerRegisterHere: 'Sign in as a traveler',
   },
   vi: {
     discover: 'Khám phá',
@@ -332,6 +340,10 @@ const translations: Record<Language, Translations> = {
     aiChatPlaceholder: 'Nhờ AI chỉnh sửa lịch trình...',
     aiSuggestion1: 'Gợi ý nhà hàng chay cho Ngày 2?',
     aiSuggestion2: 'Làm cho lịch trình này phù hợp với trẻ em.',
+    merchantAuthTitle: 'Trở thành Đối tác của Voyager',
+    merchantAuthSubtitle: 'Tham gia mạng lưới trải nghiệm du lịch cao cấp và tiếp cận du khách trên toàn thế giới.',
+    travelerCtaAuth: 'Không phải doanh nghiệp?',
+    travelerRegisterHere: 'Đăng nhập dành cho du khách',
   },
 };
 
