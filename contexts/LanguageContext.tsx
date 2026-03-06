@@ -118,6 +118,11 @@ interface Translations {
   travelerRegisterHere: string;
   merchantCtaAuth: string;
   merchantRegisterHere: string;
+  about_us: string;
+  privacy_policy: string;
+  terms_service: string;
+  trust_safety: string;
+  contact: string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -235,6 +240,11 @@ const translations: Record<Language, Translations> = {
     travelerRegisterHere: 'Sign in as a traveler',
     merchantCtaAuth: 'Are you a business?',
     merchantRegisterHere: 'Become a partner',
+    about_us: 'About Us',
+    privacy_policy: 'Privacy Policy',
+    terms_service: 'Terms of Service',
+    trust_safety: 'Trust & Safety',
+    contact: 'Contact Us',
   },
   vi: {
     discover: 'Khám phá',
@@ -350,6 +360,11 @@ const translations: Record<Language, Translations> = {
     travelerRegisterHere: 'Đăng nhập dành cho du khách',
     merchantCtaAuth: 'Bạn là doanh nghiệp?',
     merchantRegisterHere: 'Trở thành đối tác',
+    about_us: 'Về chúng tôi',
+    privacy_policy: 'Chính sách bảo mật',
+    terms_service: 'Điều khoản dịch vụ',
+    trust_safety: 'Tin cậy & An toàn',
+    contact: 'Liên hệ',
   },
 };
 
