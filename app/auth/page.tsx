@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useApp } from '@/contexts/AppContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 function GoogleIcon() {
   return (
@@ -34,6 +35,7 @@ function FacebookIcon() {
 export default function AuthPage() {
   const router = useRouter();
   const { login } = useApp();
+  const { t } = useLanguage();
   const [isSignIn, setIsSignIn] = useState(true);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -248,6 +250,13 @@ export default function AuthPage() {
             <span className="underline cursor-pointer">Terms of Service</span> and{' '}
             <span className="underline cursor-pointer">Privacy Policy</span>
           </p>
+
+          <div className="mt-8 text-center text-sm text-slate-500">
+            {t.merchantCtaAuth}{' '}
+            <Link href="/merchant/auth" className="font-medium text-[#C17C5B] hover:underline">
+              {t.merchantRegisterHere}
+            </Link>
+          </div>
         </div>
       </motion.div>
     </div>

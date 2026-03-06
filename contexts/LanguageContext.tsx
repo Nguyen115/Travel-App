@@ -116,6 +116,8 @@ interface Translations {
   merchantAuthSubtitle: string;
   travelerCtaAuth: string;
   travelerRegisterHere: string;
+  merchantCtaAuth: string;
+  merchantRegisterHere: string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -231,6 +233,8 @@ const translations: Record<Language, Translations> = {
     merchantAuthSubtitle: 'Join our curated network of premium travel experiences and reach discerning travelers worldwide.',
     travelerCtaAuth: 'Not a business?',
     travelerRegisterHere: 'Sign in as a traveler',
+    merchantCtaAuth: 'Are you a business?',
+    merchantRegisterHere: 'Become a partner',
   },
   vi: {
     discover: 'Khám phá',
@@ -344,6 +348,8 @@ const translations: Record<Language, Translations> = {
     merchantAuthSubtitle: 'Tham gia mạng lưới trải nghiệm du lịch cao cấp và tiếp cận du khách trên toàn thế giới.',
     travelerCtaAuth: 'Không phải doanh nghiệp?',
     travelerRegisterHere: 'Đăng nhập dành cho du khách',
+    merchantCtaAuth: 'Bạn là doanh nghiệp?',
+    merchantRegisterHere: 'Trở thành đối tác',
   },
 };
 
