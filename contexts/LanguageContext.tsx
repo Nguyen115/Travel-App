@@ -100,6 +100,18 @@ interface Translations {
   backProfile: string;
   verifiedTransaction: string;
   saveChanges: string;
+  shareTrip: string;
+  exportTrip: string;
+  exportPdf: string;
+  exportCalendar: string;
+  inviteFriends: string;
+  inviteEmailPlaceholder: string;
+  sendInvite: string;
+  tripMembers: string;
+  aiAssistant: string;
+  aiChatPlaceholder: string;
+  aiSuggestion1: string;
+  aiSuggestion2: string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -199,6 +211,18 @@ const translations: Record<Language, Translations> = {
     backProfile: 'Back to Profile',
     verifiedTransaction: 'verified transaction',
     saveChanges: 'Save Changes',
+    shareTrip: 'Share',
+    exportTrip: 'Export',
+    exportPdf: 'Download PDF',
+    exportCalendar: 'Add to Calendar',
+    inviteFriends: 'Invite Friends',
+    inviteEmailPlaceholder: 'Enter email address...',
+    sendInvite: 'Send Invite',
+    tripMembers: 'Trip Members',
+    aiAssistant: 'AI Assistant',
+    aiChatPlaceholder: 'Ask AI to modify your trip...',
+    aiSuggestion1: 'Can you suggest a vegan restaurant for Day 2?',
+    aiSuggestion2: 'Make this itinerary more kid-friendly.',
   },
   vi: {
     discover: 'Khám phá',
@@ -296,6 +320,18 @@ const translations: Record<Language, Translations> = {
     backProfile: 'Quay lại Hồ sơ',
     verifiedTransaction: 'giao dịch đã xác minh',
     saveChanges: 'Lưu thay đổi',
+    shareTrip: 'Chia sẻ',
+    exportTrip: 'Xuất file',
+    exportPdf: 'Tải PDF',
+    exportCalendar: 'Thêm vào Lịch',
+    inviteFriends: 'Mời bạn bè',
+    inviteEmailPlaceholder: 'Nhập địa chỉ email...',
+    sendInvite: 'Gửi lời mời',
+    tripMembers: 'Thành viên',
+    aiAssistant: 'Trợ lý AI',
+    aiChatPlaceholder: 'Nhờ AI chỉnh sửa lịch trình...',
+    aiSuggestion1: 'Gợi ý nhà hàng chay cho Ngày 2?',
+    aiSuggestion2: 'Làm cho lịch trình này phù hợp với trẻ em.',
   },
 };
 
