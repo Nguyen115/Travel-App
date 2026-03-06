@@ -69,44 +69,46 @@ export function Navigation() {
           <div className="flex items-center gap-3 ml-auto">
             <CreateTripDropdown />
 
-            <Button
-              variant={pathname === '/search' ? 'default' : 'ghost'}
-              size="sm"
-              asChild
-              className="rounded-full"
-            >
-              <Link href="/search">
-                <Search className="w-4 h-4 mr-2" />
-                <span>{t.search}</span>
-              </Link>
-            </Button>
-
-            <NotificationPopover />
-
-            {isAuthenticated ? (
+            <div className="flex items-center gap-2 pl-2 border-l border-border">
               <Button
-                variant={pathname === '/profile' || (pathname.startsWith('/profile/') && !pathname.startsWith('/profile/trips')) ? 'default' : 'ghost'}
+                variant={pathname === '/search' ? 'default' : 'ghost'}
                 size="sm"
                 asChild
                 className="rounded-full"
               >
-                <Link href="/profile">
-                  <User className="w-4 h-4 mr-2" />
-                  <span>{t.profile}</span>
+                <Link href="/search">
+                  <Search className="w-4 h-4 mr-2" />
+                  <span>{t.search}</span>
                 </Link>
               </Button>
-            ) : (
-              <Button
-                size="sm"
-                asChild
-                className="rounded-full gap-2"
-              >
-                <Link href="/auth">
-                  <LogIn className="w-4 h-4" />
-                  <span>{t.signIn}</span>
-                </Link>
-              </Button>
-            )}
+
+              {isAuthenticated ? (
+                <Button
+                  variant={pathname === '/profile' || (pathname.startsWith('/profile/') && !pathname.startsWith('/profile/trips')) ? 'default' : 'ghost'}
+                  size="sm"
+                  asChild
+                  className="rounded-full"
+                >
+                  <Link href="/profile">
+                    <User className="w-4 h-4 mr-2" />
+                    <span>{t.profile}</span>
+                  </Link>
+                </Button>
+              ) : (
+                <Button
+                  size="sm"
+                  asChild
+                  className="rounded-full gap-2"
+                >
+                  <Link href="/auth">
+                    <LogIn className="w-4 h-4" />
+                    <span>{t.signIn}</span>
+                  </Link>
+                </Button>
+              )}
+            </div>
+
+            <NotificationPopover />
 
             <div className="flex items-center gap-1 ml-2 pl-2 border-l border-border">
               <Globe className="w-3.5 h-3.5 text-muted-foreground" />

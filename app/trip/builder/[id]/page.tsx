@@ -11,6 +11,9 @@ import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { InteractiveMap } from '@/components/InteractiveMap';
 import { AddPlaceDrawer } from '@/components/AddPlaceDrawer';
+import { TripShareModal } from '@/components/TripShareModal';
+import { TripExportDropdown } from '@/components/TripExportDropdown';
+import { FloatingAIChat } from '@/components/FloatingAIChat';
 import { toast } from 'sonner';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -42,6 +45,7 @@ export default function TripBuilderPage() {
   const [hoveredActivity, setHoveredActivity] = useState<string | null>(null);
   const [selectedActivity, setSelectedActivity] = useState<string | null>(null);
   const [navigatingTo, setNavigatingTo] = useState<string | null>(null);
+  const [shareModalOpen, setShareModalOpen] = useState(false);
 
   useEffect(() => {
     const savedTrip = localStorage.getItem(`trip-${params.id}`);
@@ -136,12 +140,21 @@ export default function TripBuilderPage() {
 
             <div className="flex items-center gap-3">
               <Button
+                onClick={() => setShareModalOpen(true)}
+                variant="outline"
+                className="rounded-full border-slate-200 text-foreground hover:bg-slate-50 h-11 px-6"
+              >
+                <Share2 className="w-4 h-4 mr-2" />
+                {t.shareTrip}
+              </Button>
+              <TripExportDropdown tripTitle={trip.destination} />
+              <Button
                 variant="outline"
                 onClick={handlePublish}
                 className="rounded-full border border-primary text-primary hover:bg-primary/5"
               >
                 <Share2 className="w-4 h-4 mr-2" />
-                Publish to Community
+                Publish
               </Button>
               <Button onClick={handleSaveAndExit} className="rounded-xl">
                 Save & Exit
@@ -382,6 +395,14 @@ export default function TripBuilderPage() {
         day={selectedDay}
         onAddPlace={handleAddPlace}
       />
+
+      <TripShareModal
+        open={shareModalOpen}
+        onOpenChange={setShareModalOpen}
+        tripTitle={trip.destination}
+      />
+
+      <FloatingAIChat />
     </div>
   );
 }

@@ -45,13 +45,13 @@ export function Footer() {
             <h4 className="font-semibold text-foreground text-sm tracking-wide uppercase">{t.footerCompany}</h4>
             <ul className="space-y-3">
               {[
-                { key: 'footerAboutLink', label: t.footerAboutLink },
-                { key: 'footerCareers', label: t.footerCareers },
-                { key: 'footerPress', label: t.footerPress },
-                { key: 'footerBlog', label: t.footerBlog },
+                { href: '/about', label: t.footerAboutLink },
+                { href: '#', label: t.footerCareers },
+                { href: '#', label: t.footerPress },
+                { href: '#', label: t.footerBlog },
               ].map((item) => (
-                <li key={item.key}>
-                  <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <li key={item.href}>
+                  <Link href={item.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -63,13 +63,13 @@ export function Footer() {
             <h4 className="font-semibold text-foreground text-sm tracking-wide uppercase">{t.footerLegal}</h4>
             <ul className="space-y-3">
               {[
-                { key: 'footerTrust', label: t.footerTrust },
-                { key: 'footerPrivacy', label: t.footerPrivacy },
-                { key: 'footerTerms', label: t.footerTerms },
-                { key: 'footerContact', label: t.footerContact },
+                { href: '/trust-safety', label: t.footerTrust },
+                { href: '/privacy', label: t.footerPrivacy },
+                { href: '/terms', label: t.footerTerms },
+                { href: '/contact', label: t.footerContact },
               ].map((item) => (
-                <li key={item.key}>
-                  <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <li key={item.href}>
+                  <Link href={item.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     {item.label}
                   </Link>
                 </li>

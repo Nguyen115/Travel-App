@@ -100,6 +100,42 @@ interface Translations {
   backProfile: string;
   verifiedTransaction: string;
   saveChanges: string;
+  shareTrip: string;
+  exportTrip: string;
+  exportPdf: string;
+  exportCalendar: string;
+  inviteFriends: string;
+  inviteEmailPlaceholder: string;
+  sendInvite: string;
+  tripMembers: string;
+  aiAssistant: string;
+  aiChatPlaceholder: string;
+  aiSuggestion1: string;
+  aiSuggestion2: string;
+  merchantAuthTitle: string;
+  merchantAuthSubtitle: string;
+  travelerCtaAuth: string;
+  travelerRegisterHere: string;
+  merchantCtaAuth: string;
+  merchantRegisterHere: string;
+  about_us: string;
+  privacy_policy: string;
+  terms_service: string;
+  trust_safety: string;
+  contact: string;
+  guide_mode: string;
+  exit_guide: string;
+  next_stop: string;
+  eta: string;
+  distance: string;
+  turn_right: string;
+  simulate_incident: string;
+  alert_title: string;
+  alert_desc: string;
+  alternative_place: string;
+  alternative_desc: string;
+  accept_replan: string;
+  keep_original: string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -199,6 +235,42 @@ const translations: Record<Language, Translations> = {
     backProfile: 'Back to Profile',
     verifiedTransaction: 'verified transaction',
     saveChanges: 'Save Changes',
+    shareTrip: 'Share',
+    exportTrip: 'Export',
+    exportPdf: 'Download PDF',
+    exportCalendar: 'Add to Calendar',
+    inviteFriends: 'Invite Friends',
+    inviteEmailPlaceholder: 'Enter email address...',
+    sendInvite: 'Send Invite',
+    tripMembers: 'Trip Members',
+    aiAssistant: 'AI Assistant',
+    aiChatPlaceholder: 'Ask AI to modify your trip...',
+    aiSuggestion1: 'Can you suggest a vegan restaurant for Day 2?',
+    aiSuggestion2: 'Make this itinerary more kid-friendly.',
+    merchantAuthTitle: 'Partner with Voyager',
+    merchantAuthSubtitle: 'Join our curated network of premium travel experiences and reach discerning travelers worldwide.',
+    travelerCtaAuth: 'Not a business?',
+    travelerRegisterHere: 'Sign in as a traveler',
+    merchantCtaAuth: 'Are you a business?',
+    merchantRegisterHere: 'Become a partner',
+    about_us: 'About Us',
+    privacy_policy: 'Privacy Policy',
+    terms_service: 'Terms of Service',
+    trust_safety: 'Trust & Safety',
+    contact: 'Contact Us',
+    guide_mode: 'Guide Mode',
+    exit_guide: 'Exit',
+    next_stop: 'Next Stop',
+    eta: 'ETA',
+    distance: 'Distance',
+    turn_right: 'Turn right onto Le Loi St.',
+    simulate_incident: 'Simulate Weather Alert',
+    alert_title: 'Weather Alert & Re-plan',
+    alert_desc: 'Heavy rain detected at your next stop (Ben Thanh Market). Since this is partly outdoor, we suggest a safer indoor alternative nearby.',
+    alternative_place: 'Fine Arts Museum',
+    alternative_desc: 'Indoor • 5 mins away • Matches your \'Culture\' preference',
+    accept_replan: 'Accept Alternative',
+    keep_original: 'Keep Original Route',
   },
   vi: {
     discover: 'Khám phá',
@@ -296,6 +368,42 @@ const translations: Record<Language, Translations> = {
     backProfile: 'Quay lại Hồ sơ',
     verifiedTransaction: 'giao dịch đã xác minh',
     saveChanges: 'Lưu thay đổi',
+    shareTrip: 'Chia sẻ',
+    exportTrip: 'Xuất file',
+    exportPdf: 'Tải PDF',
+    exportCalendar: 'Thêm vào Lịch',
+    inviteFriends: 'Mời bạn bè',
+    inviteEmailPlaceholder: 'Nhập địa chỉ email...',
+    sendInvite: 'Gửi lời mời',
+    tripMembers: 'Thành viên',
+    aiAssistant: 'Trợ lý AI',
+    aiChatPlaceholder: 'Nhờ AI chỉnh sửa lịch trình...',
+    aiSuggestion1: 'Gợi ý nhà hàng chay cho Ngày 2?',
+    aiSuggestion2: 'Làm cho lịch trình này phù hợp với trẻ em.',
+    merchantAuthTitle: 'Trở thành Đối tác của Voyager',
+    merchantAuthSubtitle: 'Tham gia mạng lưới trải nghiệm du lịch cao cấp và tiếp cận du khách trên toàn thế giới.',
+    travelerCtaAuth: 'Không phải doanh nghiệp?',
+    travelerRegisterHere: 'Đăng nhập dành cho du khách',
+    merchantCtaAuth: 'Bạn là doanh nghiệp?',
+    merchantRegisterHere: 'Trở thành đối tác',
+    about_us: 'Về chúng tôi',
+    privacy_policy: 'Chính sách bảo mật',
+    terms_service: 'Điều khoản dịch vụ',
+    trust_safety: 'Tin cậy & An toàn',
+    contact: 'Liên hệ',
+    guide_mode: 'Chế độ Dẫn đường',
+    exit_guide: 'Thoát',
+    next_stop: 'Điểm đến tiếp theo',
+    eta: 'Dự kiến',
+    distance: 'Khoảng cách',
+    turn_right: 'Rẽ phải vào đường Lê Lợi',
+    simulate_incident: 'Giả lập Sự cố Thời tiết',
+    alert_title: 'Cảnh báo Thời tiết & Đổi lịch',
+    alert_desc: 'Phát hiện mưa lớn tại điểm đến (Chợ Bến Thành). Đây là khu vực có phần ngoài trời, hệ thống đề xuất điểm đến trong nhà an toàn hơn.',
+    alternative_place: 'Bảo tàng Mỹ thuật',
+    alternative_desc: 'Trong nhà • Cách 5 phút • Phù hợp sở thích \'Văn hóa\'',
+    accept_replan: 'Chấp nhận Đổi điểm',
+    keep_original: 'Giữ nguyên Lịch trình',
   },
 };
 

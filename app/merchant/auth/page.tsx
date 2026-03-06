@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Compass, Mail, Lock, User } from 'lucide-react';
+import { Compass, Mail, Lock, User, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -32,7 +32,7 @@ function FacebookIcon() {
   );
 }
 
-export default function AuthPage() {
+export default function MerchantAuthPage() {
   const router = useRouter();
   const { login } = useApp();
   const { t } = useLanguage();
@@ -42,15 +42,15 @@ export default function AuthPage() {
     e.preventDefault();
     login();
     if (isSignIn) {
-      router.push('/');
+      router.push('/merchant/dashboard');
     } else {
-      router.push('/onboarding');
+      router.push('/merchant/onboarding');
     }
   };
 
   const handleSocialLogin = () => {
     login();
-    router.push('/');
+    router.push('/merchant/onboarding');
   };
 
   return (
@@ -62,11 +62,11 @@ export default function AuthPage() {
         className="hidden lg:flex lg:w-1/2 relative overflow-hidden"
       >
         <img
-          src="https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750"
-          alt="Luxury travel"
+          src="https://images.pexels.com/photos/3722811/pexels-photo-3722811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750"
+          alt="Premium business partner"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-foreground/70 via-foreground/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-foreground/70 via-foreground/50 to-transparent" />
 
         <div className="relative z-10 flex flex-col justify-between p-12 text-white w-full">
           <Link href="/splash" className="flex items-center gap-3">
@@ -75,30 +75,34 @@ export default function AuthPage() {
           </Link>
 
           <div className="space-y-6 max-w-md">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-orange-500/20 border border-orange-400/30 flex items-center justify-center">
+                <Briefcase className="w-6 h-6 text-orange-300" />
+              </div>
+              <span className="text-sm font-semibold text-orange-200 tracking-wide uppercase">Premium Partner</span>
+            </div>
             <h2 className="font-serif text-5xl leading-tight">
-              Discover hidden gems.
-              <br />
-              Plan extraordinary journeys.
+              {t.merchantAuthTitle}
             </h2>
             <p className="text-white/75 text-lg leading-relaxed">
-              Join a community of discerning travelers who seek authentic experiences beyond the ordinary.
+              {t.merchantAuthSubtitle}
             </p>
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex items-center gap-3 pt-4">
               <div className="flex -space-x-2">
                 {[
-                  'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=100',
                   'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=100',
                   'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100',
+                  'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=100',
                 ].map((src, i) => (
                   <img key={i} src={src} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
                 ))}
               </div>
-              <p className="text-sm text-white/80">Join 12,000+ travelers worldwide</p>
+              <p className="text-sm text-white/80">Trusted by 500+ premium businesses</p>
             </div>
           </div>
 
           <div className="text-xs text-white/40 font-medium tracking-widest uppercase">
-            Premium Travel Discovery Platform
+            Join Our Premium Network
           </div>
         </div>
       </motion.div>
@@ -118,8 +122,8 @@ export default function AuthPage() {
           </div>
 
           <div className="space-y-1">
-            <h1 className="font-serif text-4xl text-foreground">Welcome back</h1>
-            <p className="text-muted-foreground">Sign in to continue your journey</p>
+            <h1 className="font-serif text-4xl text-foreground">{t.merchantAuthTitle}</h1>
+            <p className="text-muted-foreground">Create your merchant account to get started</p>
           </div>
 
           <div className="space-y-3">
@@ -147,7 +151,7 @@ export default function AuthPage() {
             <hr className="flex-1 border-slate-200" />
           </div>
 
-          <Tabs defaultValue="signin" className="w-full" onValueChange={(v) => setIsSignIn(v === 'signin')}>
+          <Tabs defaultValue="signup" className="w-full" onValueChange={(v) => setIsSignIn(v === 'signin')}>
             <TabsList className="grid w-full grid-cols-2 mb-6">
               <TabsTrigger value="signin" className="rounded-full">Sign In</TabsTrigger>
               <TabsTrigger value="signup" className="rounded-full">Sign Up</TabsTrigger>
@@ -162,7 +166,7 @@ export default function AuthPage() {
                     <Input
                       id="email"
                       type="email"
-                      placeholder="you@example.com"
+                      placeholder="business@example.com"
                       className="pl-10 h-12 rounded-full border-slate-200 focus-visible:ring-primary"
                       required
                     />
@@ -197,13 +201,13 @@ export default function AuthPage() {
             <TabsContent value="signup">
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="space-y-2">
-                  <Label htmlFor="name" className="text-foreground font-medium">Full Name</Label>
+                  <Label htmlFor="name" className="text-foreground font-medium">Business Name</Label>
                   <div className="relative">
-                    <User className="absolute left-3.5 top-3.5 h-4 w-4 text-muted-foreground" />
+                    <Briefcase className="absolute left-3.5 top-3.5 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="name"
                       type="text"
-                      placeholder="John Doe"
+                      placeholder="Your Business"
                       className="pl-10 h-12 rounded-full border-slate-200 focus-visible:ring-primary"
                       required
                     />
@@ -217,7 +221,7 @@ export default function AuthPage() {
                     <Input
                       id="signup-email"
                       type="email"
-                      placeholder="you@example.com"
+                      placeholder="business@example.com"
                       className="pl-10 h-12 rounded-full border-slate-200 focus-visible:ring-primary"
                       required
                     />
@@ -238,24 +242,26 @@ export default function AuthPage() {
                   </div>
                 </div>
 
-                <Button type="submit" className="w-full h-12 rounded-full text-base font-medium">
+                <Button type="submit" className="w-full h-12 rounded-full text-base font-medium bg-orange-600 hover:bg-orange-700">
                   Create Account
                 </Button>
               </form>
             </TabsContent>
           </Tabs>
 
-          <p className="text-center text-xs text-muted-foreground leading-relaxed">
-            By continuing, you agree to our{' '}
-            <span className="underline cursor-pointer">Terms of Service</span> and{' '}
-            <span className="underline cursor-pointer">Privacy Policy</span>
-          </p>
+          <div className="pt-4 border-t border-slate-200 space-y-4">
+            <p className="text-xs text-center text-muted-foreground">
+              By continuing, you agree to our{' '}
+              <span className="underline cursor-pointer">Terms of Service</span> and{' '}
+              <span className="underline cursor-pointer">Privacy Policy</span>
+            </p>
 
-          <div className="mt-8 text-center text-sm text-slate-500">
-            {t.merchantCtaAuth}{' '}
-            <Link href="/merchant/auth" className="font-medium text-[#C17C5B] hover:underline">
-              {t.merchantRegisterHere}
-            </Link>
+            <p className="text-sm text-center text-slate-500">
+              {t.travelerCtaAuth}{' '}
+              <Link href="/auth" className="text-primary font-medium hover:underline">
+                {t.travelerRegisterHere}
+              </Link>
+            </p>
           </div>
         </div>
       </motion.div>
